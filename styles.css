@@ -49,11 +49,12 @@ ul li a{
 li:hover .underline{
     width: 100%;
 }
-/*----------------------Home section----------------*/
+/*---------------------- Home section ----------------------*/
 main{
     width: 100%;
     overflow: hidden;
     margin-top: 85px;
+    max-width: 1350px;
 }
 #home{
     width: 100%;
@@ -108,16 +109,11 @@ main{
     color: #ff0000;
     box-shadow: 0 0 10px #f00;
 }
-/* 2nd section*/
-#explore{
-    padding: 2em 1em;
-    margin: 0 auto;
-}
 .contact{
     background-color: transparent;
     border: 2px solid #f00;
 }
-/*-----------------------explore section---------*/
+/*---------------------- Explore section ----------------------*/
 #explore{
     padding: 4em 1em;
     margin: 0 auto;
@@ -154,3 +150,51 @@ main{
     font-family: "Orbitron", sans-serif ;
     font-size: 1.2rem;
 }
+/*---------------------- Gallery section ----------------------*/
+#gallery {
+  width: 100%;
+  overflow: hidden;
+  background: #111;
+  padding: 3em 0;
+  position: relative;
+}
+.gallery-title {
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5em;
+  color: #f00;
+}
+.slide {
+  display: flex;
+  gap: 20px;
+  animation: scroll 15s linear infinite;
+}
+.carbox {
+  min-width: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+.carbox img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.carbox:hover img {
+  transform: scale(1.1);
+}
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/*---------------------- About section ----------------------*/
+
+
+
+
+
+
+
