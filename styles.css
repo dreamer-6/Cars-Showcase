@@ -360,9 +360,118 @@ li:hover .underline {
 /* ====================================
  6. MEDIA QUERIES (RESPONSIVENESS)
 ==================================== */
-@media screen and (max-width:640px) {
+@media screen and (max-width: 640px) {
+    main {
+        margin-top: 70px; 
+    }
+    #hero-info h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    #hero-info p {
+        font-size: 1rem;
+    }
+    .explore, .contact {
+        padding: 0.6em 1.5em;
+        font-size: 0.9rem;
+        margin: 0.5em 0;
+    }
+    .container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 1em;
+    }
+    .car-category img {
+        height: 220px;
+    }
+    .car-type {
+        font-size: 1.3rem;
+    }
+    .carousel-track {
+        gap: 15px;
+    }
+    .carbox {
+        min-width: 250px;
+        height: 200px;
+    }
+    #about {
+        flex-direction: column;
+        padding: 3em 1em;
+    }
     .about-container {
         grid-template-columns: 1fr;
-        justify-content: center;
+        gap: 20px;
+    }
+    .about-text h2 {
+        font-size: 2rem;
+    }
+    .about-text p {
+        font-size: 1rem;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        background-color: #0d0d0d;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 200px;
+        padding: 1em;
+        transition: right 0.3s ease;
+    }
+    nav ul.active {
+        right: 0;
+    }
+}
+@media screen and (max-width: 1024px) {
+    #hero-info h1 {
+        font-size: 3rem;
+    }
+    #hero-info p {
+        font-size: 1.1rem;
+    }
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    .car-category img {
+        height: 250px;
+    }
+    .carbox {
+        min-width: 300px;
+        height: 250px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    .container {
+        gap: 20px;
+    }
+    .car-category img {
+        height: 280px;
+    }
+    .carbox {
+        min-width: 350px;
+        height: 280px;
+    }
+}
+header #menu-toggle {
+    display: none;
+}
+@media screen and (max-width: 640px) {
+    header {
+        padding: 1em 2em;
+    }
+
+    .logo-txt {
+        font-size: 1.8rem;
+    }
+    #menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1010;
     }
 }
