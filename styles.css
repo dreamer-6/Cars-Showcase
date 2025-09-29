@@ -1,21 +1,36 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     color: #fff;
 }
-body{
+
+body {
     background-color: #0d0d0d;
 }
-main{
+
+main {
     width: 100%;
     overflow: hidden;
-    margin-top: 85px;
     max-width: 1350px;
+    margin: 0 auto;
 }
-/*--------------header section--------------*/
-#navbar{
+
+.section-title {
+    text-align: center;
+    padding-bottom: 1em;
+    font-size: 2.5rem;
+    font-family: "Orbitron", sans-serif;
+    color: #f00;
+    margin-bottom: 2rem;
+}
+
+/* ====================================
+ 1. HEADER/NAVBAR
+====================================
+*/
+#navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -25,57 +40,67 @@ main{
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: background 0.4s ease;
     background: #0d0d0d;
 }
-.logo-link{
+
+.logo-link {
     text-decoration: none;
 }
-.logo-txt{
+
+.logo-txt {
     font-size: 2rem;
     font-family: "Orbitron", sans-serif;
     color: #f00;
     letter-spacing: 2px;
 }
-nav ul{
+
+nav ul {
     list-style-type: none;
     display: flex;
     gap: 40px;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
-    font-family: "Inter", sans-serif;
     font-size: 1rem;
     text-transform: uppercase;
     color: #fff;
     position: relative;
+    transition: color 0.4s ease;
 }
-.underline{
+
+.underline {
     width: 0%;
     height: 2px;
     background-color: #f00;
     transition: width 0.4s ease;
 }
-nav ul li a:hover{
+
+nav ul li a:hover {
     color: #f00;
 }
-li:hover .underline{
+
+li:hover .underline {
     width: 100%;
 }
-/*--------------Home section--------------*/
-#home{
+
+/* ====================================
+ 2. HERO SECTION (#HOME)
+====================================
+*/
+#home {
     width: 100%;
     height: 100vh;
+    padding-top: 85px;
     background: url(resources/empty-dark-room-modern-futuristic-sci-fi-background-3d-illustration.jpg) no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    padding-left: 50px;
     overflow: hidden;
 }
-#home .overlay{
+
+#home .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -85,25 +110,27 @@ li:hover .underline{
     background: rgba(0, 0, 0, 0.55);
 }
 
-#hero-info{
+#hero-info {
     position: relative;
     z-index: 2;
     max-width: 700px;
     text-align: center;
     animation: fadeIn 2s ease forwards;
+    padding: 0 1em;
 }
-.title-content h1{
+
+.title-content h1 {
     font-family: "Orbitron", sans-serif;
     font-size: 4rem;
     letter-spacing: 3px;
-    color: #fff;
     margin-bottom: 0.5em;
     text-transform: uppercase;
-    background: linear-gradient(90deg,#f00,#ff4d4d,#fff);
+    background: linear-gradient(90deg, #f00, #ff4d4d, #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.title-content p{
+
+.title-content p {
     font-family: "Inter", sans-serif;
     font-size: 1.2rem;
     color: #ddd;
@@ -111,12 +138,13 @@ li:hover .underline{
     line-height: 1.6;
     margin-bottom: 1.5em;
 }
-/* Buttons with neon-glass style */
-.explore{
+
+/* Button Styles (Neon-Glass) */
+.explore {
     background-color: rgba(255, 0, 0, 0.1);
     color: #fff;
     padding: 0.8em 2em;
-    margin: 0 1em;
+    margin: 0 0.5em;
     border: 2px solid rgba(255, 0, 0, 0.7);
     border-radius: 30px;
     backdrop-filter: blur(10px);
@@ -125,183 +153,214 @@ li:hover .underline{
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
-.explore:hover{
+
+.explore:hover {
     background-color: rgba(255, 0, 0, 0.3);
     box-shadow: 0 0 25px #f00;
     transform: translateY(-3px);
 }
+
 .contact {
     background: transparent;
     border: 2px solid #fff;
+    box-shadow: none;
 }
+
+.contact:hover {
+    background-color: rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 25px #f00;
+    transform: translateY(-3px);
+    border: 2px solid rgba(255, 0, 0, 0.7);
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-/*--------------Explore section--------------*/
-#explore{
+
+/* ====================================
+ 3. EXPLORE SECTION
+====================================
+*/
+#explore {
     width: 100%;
-    height: 100vh;
     padding: 5em 2em;
 }
-.section-title{
-    text-align: center;
-    padding-bottom: 1em;
-    font-size: 2.5rem;
-    color: #f00;
-    
-}
-.container{
+
+.container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     max-width: 1000px;
     margin: 1em auto;
 }
-.car-category{
+
+.car-category {
     position: relative;
     overflow: hidden;
     border-radius: 15px;
     cursor: pointer;
     transition: 0.3s all ease;
 }
-.car-category img{
+
+.car-category img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
+
 .car-type {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  opacity: 0;
-  color: #fff;
-  font-size: 1.6rem;
-  font-family: "Orbitron", sans-serif;
-  letter-spacing: 2px;
-  transition: all 0.4s ease;
-  z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    color: #fff;
+    font-size: 1.6rem;
+    font-family: "Orbitron", sans-serif;
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+    z-index: 3;
 }
+
 .car-category::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
-.car-category:hover{
+
+.car-category:hover {
     transform: translateY(-10px);
 }
+
 .car-category:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
+
 .car-category:hover::after {
-  opacity: 1;
+    opacity: 1;
 }
+
 .car-category:hover .car-type {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
 }
-/*--------------Gallery section--------------*/
+
+/* ====================================
+ 4. GALLERY SECTION
+====================================
+*/
 #gallery {
-  width: 100%;
-  overflow: hidden;
-  background: #111;
-  padding: 3rem 0;
+    width: 100%;
+    overflow: hidden;
+    background: #111;
+    padding: 3rem 0;
 }
 
-.section-title {
-  text-align: center;
-  font-family: "Orbitron", sans-serif;
-  font-size: 2.5rem;
-  color: #f00;
-  margin-bottom: 2rem;
-}
-
-/* Carousel Container */
 .carousel {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
-/* Track that scrolls */
 .carousel-track {
-  display: flex;
-  gap: 20px;
-  animation: scroll 20s linear infinite;
+    display: flex;
+    gap: 20px;
+    animation: scroll 20s linear infinite;
 }
 
-/* Each car */
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
 .carbox {
-  min-width: 400px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+    min-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .carbox img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-/* Hover effect */
 .carbox:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .carbox:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-/* Infinite scroll animation */
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* moves half of the duplicated track */
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
-/*--------------About section--------------*/
-#about{
+/* ====================================
+ 5. ABOUT SECTION
+====================================
+*/
+#about {
     background-color: #0d0d0d;
     padding: 5em 2em;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.about-container{
+
+.about-container {
     max-width: 1100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
 }
-.about-text h2{
+
+.about-text h2 {
     color: #f00;
     font-size: 2.5rem;
     font-family: "Orbitron", sans-serif;
     margin-bottom: 0.8em;
 }
-.about-text p{
+
+.about-text p {
     font-family: "Inter", sans-serif;
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 1em;
 }
 
-.about-image img{
+.about-image img {
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
 }
 
-
-
-
-
-
+/* ====================================
+ 6. MEDIA QUERIES (RESPONSIVENESS)
+==================================== */
+@media screen and (max-width:640px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+}
