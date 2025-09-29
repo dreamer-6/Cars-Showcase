@@ -73,6 +73,7 @@ li:hover .underline{
     justify-content: center;
     color: #fff;
     padding-left: 50px;
+    overflow: hidden;
 }
 #home .overlay{
     position: absolute;
@@ -81,54 +82,74 @@ li:hover .underline{
     width: 100%;
     height: 100%;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.55);
 }
 
 #hero-info{
-    margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 700px;
     text-align: center;
+    animation: fadeIn 2s ease forwards;
 }
 .title-content h1{
     font-family: "Orbitron", sans-serif;
-    font-size: 3.5rem;
-    letter-spacing: 2px;
+    font-size: 4rem;
+    letter-spacing: 3px;
     color: #fff;
     margin-bottom: 0.5em;
     text-transform: uppercase;
+    background: linear-gradient(90deg,#f00,#ff4d4d,#fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .title-content p{
     font-family: "Inter", sans-serif;
     font-size: 1.2rem;
-    color: #fff;
-    opacity: 0.7;
-    line-height: 1.5;
+    color: #ddd;
+    opacity: 0.8;
+    line-height: 1.6;
     margin-bottom: 1.5em;
 }
+/* Buttons with neon-glass style */
 .explore{
     background-color: rgba(255, 0, 0, 0.1);
     color: #fff;
     padding: 0.8em 2em;
     margin: 0 1em;
     border: 2px solid rgba(255, 0, 0, 0.7);
-    border-radius: 20px;
+    border-radius: 30px;
     backdrop-filter: blur(10px);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
     transition: all 0.3s ease;
 }
 .explore:hover{
     background-color: rgba(255, 0, 0, 0.3);
-    box-shadow: 0 0 15px #f00;
+    box-shadow: 0 0 25px #f00;
     transform: translateY(-3px);
 }
-
+.contact {
+    background: transparent;
+    border: 2px solid #fff;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 /*--------------Explore section--------------*/
 #explore{
     width: 100%;
     height: 100vh;
-    padding: 4em 1em;
-    margin: 0 auto;
+    padding: 5em 2em;
+}
+.section-title{
+    text-align: center;
+    padding-bottom: 1em;
+    font-size: 2.5rem;
+    color: #f00;
+    
 }
 .container{
     display: grid;
@@ -142,75 +163,109 @@ li:hover .underline{
     overflow: hidden;
     border-radius: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.car-category:hover {
-    transform: scale(1.03);
+    transition: 0.3s all ease;
 }
 .car-category img{
     width: 100%;
     height: 300px;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
-.car-category:hover img,
-.car-category:hover .car-type{
-    display: block;
-    transform: scale(1.1);
+.car-type {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  z-index: 3;
 }
-.car-type{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 0.8em;
-    font-family: "Orbitron", sans-serif ;
-    font-size: 1.2rem;
-    text-shadow: 0 0 10px #0d0d0d;
-    display: none;
-    transition:  2s ease;
-    
+.car-category::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.car-category:hover{
+    transform: translateY(-10px);
+}
+.car-category:hover img {
+  transform: scale(1.1);
+}
+.car-category:hover::after {
+  opacity: 1;
+}
+.car-category:hover .car-type {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 /*--------------Gallery section--------------*/
 #gallery {
   width: 100%;
   overflow: hidden;
   background: #111;
-  padding: 3em 0;
-  position: relative;
+  padding: 3rem 0;
 }
-.gallery-title {
+
+.section-title {
   text-align: center;
   font-family: "Orbitron", sans-serif;
   font-size: 2.5rem;
-  margin-bottom: 1.5em;
   color: #f00;
+  margin-bottom: 2rem;
 }
-.slide {
+
+/* Carousel Container */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track that scrolls */
+.carousel-track {
   display: flex;
   gap: 20px;
-  animation: scroll 15s linear infinite;
+  animation: scroll 20s linear infinite;
 }
+
+/* Each car */
 .carbox {
-  min-width: 500px;
+  min-width: 400px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
+
 .carbox img {
   width: 100%;
   height: 300px;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
+
+/* Hover effect */
+.carbox:hover {
+  transform: translateY(-5px);
+}
+
 .carbox:hover img {
   transform: scale(1.1);
 }
+
+/* Infinite scroll animation */
 @keyframes scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-50%); } /* moves half of the duplicated track */
 }
+
 /*--------------About section--------------*/
 #about{
     background-color: #0d0d0d;
@@ -238,21 +293,7 @@ li:hover .underline{
     line-height: 1.5;
     margin-bottom: 1em;
 }
-.about-btn{
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    padding: 1em 1.5em;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.3s ease;
-    box-shadow: 0 0 10px #f00;
-}
-.about-btn:hover{
-    background-color: #fff;
-    color: #f00;
-}
+
 .about-image img{
     width: 100%;
     border-radius: 20px;
